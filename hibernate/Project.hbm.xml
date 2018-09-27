@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="top.zhonglinhao.a_many2many">
+ <class name="Project" table="tb_project">
+ 	
+ 	<id name="proId" column="proId">
+ 		<generator class="native"></generator>
+ 	</id>
+ 	<property name="proName" column="proName" length="20"></property>
+ 	
+ 	<!-- 多对多映射 -->
+ 	<set name="devs" table="tb_relation">
+ 		<key column="pId"></key>
+ 		<many-to-many column="dId" class="Developer"></many-to-many>
+ 	</set>
+ </class>
+</hibernate-mapping>
+
+
+
